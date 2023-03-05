@@ -1,0 +1,18 @@
+#!/usr/bin/with-contenv bash
+
+preferences="/config/Library/Application Support/Plex Media Server/Preferences.xml"
+default="/config/Library/Application Support/Plex Media Server/Cache"
+tier1="/tmp/autotier"
+tier2="/autotier"
+
+tempdir=$(cat "$preferences" | grep -Eo 'TranscoderTempDirectory="[^"]*"' | sed -E 's/TranscoderTempDirectory="([^"]*)"/\1/')
+tempdir=${tempdir:-"$default"}
+tempdir="$tempdir/Transcode"
+echo "$tempdir"
+
+mkdir -p "$tier1" "$tier2"
+mount --bind "$tempdir" "$tier2"
+
+autotierfs "$tempdir" -o allow_other,default_permissions
+
+chown nobody:abc "$tier1" "$tier2" "$tempdir"

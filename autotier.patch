@@ -1,0 +1,24 @@
+diff --git a/src/impl/autotierfs/config.cpp b/src/impl/autotierfs/config.cpp
+index e8f9502f..b117897a 100644
+--- a/src/impl/autotierfs/config.cpp
++++ b/src/impl/autotierfs/config.cpp
+@@ -22,6 +22,7 @@
+ #include "alert.hpp"
+ #include "tier.hpp"
+ 
++#include <fstream>
+ #include <45d/Quota.hpp>
+ #include <45d/config/ConfigSubsectionGuard.hpp>
+ #include <regex>
+diff --git a/src/incl/file.hpp b/src/incl/file.hpp
+index d7bdc30b..99e943ff 100644
+--- a/src/incl/file.hpp
++++ b/src/incl/file.hpp
+@@ -21,6 +21,7 @@
+ 
+ #include "metadata.hpp"
+ 
++#include <sys/time.h>
+ #include <45d/Bytes.hpp>
+ #include <boost/filesystem.hpp>
+ #include <rocksdb/db.h>
