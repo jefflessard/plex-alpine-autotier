@@ -1,3 +1,5 @@
+ARG VERSION=latest
+
 FROM ghcr.io/linuxserver/baseimage-alpine:edge AS builder
 
 COPY autotier.patch "/build/"
@@ -24,7 +26,7 @@ RUN apk add --no-cache --update-cache \
  && make -j8 \
  && make install
 
-FROM ghcr.io/jefflessard/plex-alpine:latest
+FROM ghcr.io/jefflessard/plex-alpine:$VERSION
 
 RUN apk --no-cache --update-cache add \
     fuse3 \
