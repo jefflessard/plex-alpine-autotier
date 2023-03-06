@@ -24,7 +24,7 @@ RUN apk add --no-cache --update-cache \
  && make -j8 \
  && make install
 
-FROM ghcr.io/jefflessard/plex-alpine:10
+FROM ghcr.io/jefflessard/plex-alpine:latest
 
 RUN apk --no-cache --update-cache add \
     fuse3 \
