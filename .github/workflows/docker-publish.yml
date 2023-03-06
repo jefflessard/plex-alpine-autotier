@@ -19,12 +19,12 @@ jobs:
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
-#      -
-#        name: Login to Docker Hub
-#        uses: docker/login-action@v2
-#        with:
-#          username: ${{ secrets.DOCKERHUB_USERNAME }}
-#          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      -
+        name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_HUB_USER }}
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
       -
         name: Login to GitHub Container Registry
         uses: docker/login-action@v2
@@ -42,3 +42,5 @@ jobs:
           tags: |
             ghcr.io/${{ github.repository }}:${{ inputs.VERSION }}
             ghcr.io/${{ github.repository }}:latest
+            ${{ github.repository }}:${{ inputs.VERSION }}
+            ${{ github.repository }}:latest
