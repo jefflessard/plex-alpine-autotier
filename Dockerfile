@@ -6,8 +6,8 @@ COPY autotier.patch "/build/"
 
 RUN apk add --no-cache --update-cache \
         fuse3-dev \
-        boost1.81-dev \
-        boost1.81-static \
+        boost1.82-dev \
+        boost1.82-static \
         libtbb-dev \
         git \
         make \
@@ -30,9 +30,9 @@ FROM ghcr.io/jefflessard/plex-alpine:$VERSION
 
 RUN apk --no-cache --update-cache add \
     fuse3 \
-    boost1.81-filesystem \
-    boost1.81-serialization \
-    boost1.81-system \
+    boost1.82-filesystem \
+    boost1.82-serialization \
+    boost1.82-system \
     libtbb \
     lz4-libs \
     snappy \
